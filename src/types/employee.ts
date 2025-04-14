@@ -4,6 +4,7 @@ export interface IEmployeesContext {
 }
 
 export interface IEmployee {
+  id: string;
   name: string;
   document: string;
   salary: number;

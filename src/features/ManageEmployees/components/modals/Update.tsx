@@ -5,8 +5,7 @@ import {
   DialogDescription, 
   DialogHeader, 
   DialogTitle, 
-  DialogTrigger } from "@/components/ui/dialog"
-import { SquarePen } from "lucide-react";
+} from "@/components/ui/dialog"
 import { IModalDefaultProps } from "./interfaces.structure";
 import { IEmployee } from "@/types/employee";
 import { employeeFormConfig } from "@/constants/form";
@@ -16,18 +15,10 @@ interface IUpdateModalProps extends IModalDefaultProps {
   employee: IEmployee;
 }
 
-export const UpdateModal = ({isOpen,onSubmit,setIsOpen}:IUpdateModalProps) => {
+export const UpdateModal = ({employee,isOpen,onSubmit,setIsOpen}:IUpdateModalProps) => {
+  console.log({employee})
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogTrigger>
-        <button
-          onClick={() => {}}
-          className="text-zinc-500 hover:text-zinc-900 transition cursor-pointer"
-          title="Editar"
-        >
-          <SquarePen size={18} />
-        </button>
-      </DialogTrigger>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Atualizar informações funcionário</DialogTitle>
@@ -38,6 +29,7 @@ export const UpdateModal = ({isOpen,onSubmit,setIsOpen}:IUpdateModalProps) => {
         <DynamicForm 
           fields={employeeFormConfig}
           onSubmit={onSubmit}
+          defaultValues={employee}
         />
       </DialogContent>
     </Dialog>

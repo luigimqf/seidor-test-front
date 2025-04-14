@@ -5,8 +5,7 @@ import {
   DialogDescription, 
   DialogHeader, 
   DialogTitle, 
-  DialogTrigger } from "@/components/ui/dialog"
-import { Trash2 } from "lucide-react";
+} from "@/components/ui/dialog"
 import { IModalDefaultProps } from "./interfaces.structure";
 
 interface IDeleteModalProps extends IModalDefaultProps {
@@ -16,14 +15,6 @@ interface IDeleteModalProps extends IModalDefaultProps {
 export const DeleteModal = ({onConfirm, isOpen,setIsOpen}:IDeleteModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogTrigger>
-        <button
-          className="text-red-500 hover:text-red-700 transition cursor-pointer"
-          title="Excluir"
-        >
-          <Trash2 size={18} />
-        </button>
-      </DialogTrigger>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Tem certeza que deseja excluir o funcionário?</DialogTitle>
