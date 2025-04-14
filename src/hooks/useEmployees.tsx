@@ -1,25 +1,26 @@
+import { defaultEmployees } from "@/constants/employees";
 import React from "react";
 
-import { Employees, IEmployeesContext } from "src/types/useEmployees.structure";
+import { Employees, IEmployeesContext } from "@/types/employee";
 
-const EmployerContext = React.createContext({} as IEmployeesContext);
+const EmployeesContext = React.createContext({} as IEmployeesContext);
 
-export const EmployerProvider = ({
+export const EmployeesProvider = ({
   children,
 }: {
   children: React.ReactNode;
 }) => {
-  const [employees, setEmployees] = React.useState<Employees>([]);
+  const [employees, setEmployees] = React.useState<Employees>(defaultEmployees);
 
   return (
-    <EmployerContext.Provider value={{ employees, setEmployees }}>
+    <EmployeesContext.Provider value={{ employees, setEmployees }}>
       {children}
-    </EmployerContext.Provider>
+    </EmployeesContext.Provider>
   );
 };
 
 export const useEmployees = () => {
-  const context = React.useContext(EmployerContext);
+  const context = React.useContext(EmployeesContext);
 
   if (context === undefined) {
     throw new Error(

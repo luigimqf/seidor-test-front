@@ -1,4 +1,4 @@
-import { IEmployee } from "@/types/useEmployees.structure";
+import { IEmployee } from "@/types/employee";
 
 export const defaultEmployees: IEmployee[] = [
   {
