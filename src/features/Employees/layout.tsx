@@ -1,9 +1,9 @@
 import React from "react";
-import { useEmployees } from "../hooks/useEmployees";
-import { CreateModal } from "./modals/Create";
-import { IEmployee } from "../types";
-import EmployeeTable from "./table/EmployeeTable";
-import { userSchema } from "../lib/validation";
+import { useEmployees } from "./hooks/useEmployees";
+import { CreateModal } from "./components/modals/Create";
+import { IEmployee } from "./types";
+import EmployeeTable from "./components/table/EmployeeTable";
+import { userSchema } from "./lib/validation";
 
 export const EmployeeLayout = () => {
     const { employees, updateEmployee, createEmployee, deleteEmployee } = useEmployees();

@@ -1,4 +1,4 @@
-import { EmployeeLayout } from "./components/layout"
+import { EmployeeLayout } from "./layout"
 import { EmployeesProvider } from "./hooks/useEmployees"
 
 
