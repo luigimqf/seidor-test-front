@@ -10,6 +10,7 @@ Aplicação front-end desenvolvida em React para gerenciamento de funcionários.
 - ✅ Atualização de informações de funcionário.
 - ✅ Remoção de funcionário.
 - ✅ Tema claro.
+- ✅ Construção dinâmica de formulários.
 - ✅ Validação de formulários.
 - ✅ Filtro por Nome e CPF.
 - ✅ Arquitetura Dinâmica.
