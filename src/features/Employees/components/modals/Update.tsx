@@ -7,8 +7,9 @@ import {
   DialogTitle, 
 } from "@/components/ui/dialog"
 import { IModalDefaultProps } from "./interfaces.structure";
-import { IEmployee } from "@/types/employee";
-import { employeeFormConfig } from "@/constants/employees";
+import { IEmployee } from "../../types";
+import { employeeFormConfig } from "../../constants";
+
 
 interface IUpdateModalProps extends IModalDefaultProps {
   onSubmit: (data: unknown) => void;

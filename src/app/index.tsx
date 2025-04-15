@@ -1,12 +1,9 @@
-import { ManageEmployees } from "@/features/ManageEmployees";
-import { EmployeesProvider } from "@/hooks/useEmployees";
+import { Employees } from "@/features/Employees";
 
 const App = () => {
   return (
     <div className="w-full h-screen flex justify-center items-center">
-      <EmployeesProvider>
-        <ManageEmployees />
-      </EmployeesProvider>
+      <Employees />
     </div>
   );
 };

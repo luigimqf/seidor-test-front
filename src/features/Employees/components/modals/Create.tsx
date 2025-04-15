@@ -8,8 +8,8 @@ import {
   DialogTitle, 
   DialogTrigger } from "@/components/ui/dialog"
 import { IModalDefaultProps } from "./interfaces.structure";
-import { userSchema } from "@/utils/validation";
-import { employeeFormConfig } from "@/constants/employees";
+import { employeeFormConfig } from "../../constants";
+import { userSchema } from "../../lib/validation";
 
 interface ICreateModalProps extends IModalDefaultProps {
   onSubmit: (data: unknown) => void;

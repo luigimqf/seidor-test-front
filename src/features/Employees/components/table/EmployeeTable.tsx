@@ -7,10 +7,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { IEmployee } from "@/types/employee"
-import { DeleteModal } from "@/features/ManageEmployees/components/modals/Delete"
-import { UpdateModal } from "@/features/ManageEmployees/components/modals/Update"
+
 import { SquarePen, Trash2 } from "lucide-react"
+import { IEmployee } from "../../types"
+import { UpdateModal } from "../modals/Update"
+import { DeleteModal } from "../modals/Delete"
 
 interface EmployeeTableProps {
   data: IEmployee[]

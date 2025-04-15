@@ -1,4 +1,4 @@
-import { DEPENDENT_DEDUCTION, IRRF_TABLE } from "@/constants/employees"
+import { DEPENDENT_DEDUCTION, IRRF_TABLE } from "@/features/Employees/constants";
 import { NumbetToFixed } from "@/lib/utils";
 
 export const calcBaseSalary = (salary: number, discount: number, dependents: number) => {

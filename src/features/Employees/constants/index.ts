@@ -1,5 +1,5 @@
-import { IEmployee } from "@/types/employee";
 import { FieldConfig } from "@/types/form";
+import { IEmployee } from "../types";
 
 type IRRF = {
   min: number;

@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { Form } from "@/components/ui/form";
 import { FieldConfig } from "@/types/form";
 import { Button } from "../ui/button";
-import { generateZodSchema } from "@/utils/validation";
+import { generateZodSchema } from "@/lib/validation";
 
 export const withDynamicForm = (WrappedComponent: React.ComponentType<any>) => {
   return ({

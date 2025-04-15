@@ -1,17 +1,14 @@
-import EmployeeTable from "@/components/table/EmployeeTable"
-import { useEmployees } from "@/hooks/useEmployees"
-import { CreateModal } from "./components/modals/Create";
 import React from "react";
-import { IEmployee } from "@/types/employee";
+import { useEmployees } from "../hooks/useEmployees";
+import { CreateModal } from "./modals/Create";
+import { IEmployee } from "../types";
+import EmployeeTable from "./table/EmployeeTable";
 
-export const ManageEmployees = () => {
-  const { employees, update, create } = useEmployees();
-  const [isCreating, setIsCreating] = React.useState<boolean>(false);
-
+export const EmployeeLayout = () => {
+    const { employees, update, create } = useEmployees();
+    const [isCreating, setIsCreating] = React.useState<boolean>(false);
   return (
-    <div
-      className="w-full h-full flex flex-col justify-center items-center gap-8 px-10"
-    >
+    <>
       <div
         className="w-full flex justify-between items-center px-2"
       >
@@ -36,6 +33,6 @@ export const ManageEmployees = () => {
           update(emp)
         }}
       />
-    </div>
+    </>
   )
 }

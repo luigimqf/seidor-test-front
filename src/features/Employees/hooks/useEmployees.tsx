@@ -1,7 +1,7 @@
 import React from "react";
+import { Employees, IEmployee, IEmployeesContext } from "../types";
+import { handleGrossSalary } from "../lib/utils";
 
-import { Employees, IEmployee, IEmployeesContext } from "@/types/employee";
-import { handleGrossSalary } from "@/utils/employee";
 
 const EmployeesContext = React.createContext({} as IEmployeesContext);
 
