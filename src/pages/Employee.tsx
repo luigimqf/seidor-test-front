@@ -1,5 +1,5 @@
-import { EmployeeLayout } from "./layout"
-import { EmployeesProvider } from "./hooks/useEmployees"
+import { EmployeesProvider } from "@/features/Employees/hooks/useEmployees"
+import { EmployeeLayout } from "@/features/Employees/layout"
 
 
 export const Employees = () => {

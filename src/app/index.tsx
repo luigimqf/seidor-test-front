@@ -1,9 +1,12 @@
-import { Employees } from "@/features/Employees";
+import Routes from "@/routes";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const App = () => {
   return (
     <div className="w-full h-screen flex justify-center items-center">
-      <Employees />
+      <Router>
+        <Routes />
+      </Router>
     </div>
   );
 };
