@@ -55,8 +55,8 @@ const EmployeeTable: React.FC<EmployeeTableProps> = ({ data, onDelete, onEdit, s
         </TableHeader>
         <TableBody>
           {filteredData.length > 0 ? (
-            filteredData.map((emp, index) => (
-              <TableRow key={index}>
+            filteredData.map((emp) => (
+              <TableRow key={emp.id}>
                 <TableCell className="px-4 py-2">{emp.name}</TableCell>
                 <TableCell className="px-4 py-2">{emp.document}</TableCell>
                 <TableCell className="px-4 py-2 text-right">R$ {emp.salary.toFixed(2)}</TableCell>
