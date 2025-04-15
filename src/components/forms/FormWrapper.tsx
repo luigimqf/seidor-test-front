@@ -30,6 +30,7 @@ const FormWrapper: React.FC<FormWrapperProps> = ({ fields, control }) => {
               <FormControl>
                 <Input
                   {...f}
+                  {...field}
                   placeholder={field.placeholder}
                   type={field.type}
                 />

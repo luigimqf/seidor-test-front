@@ -15,14 +15,16 @@ export const withDynamicForm = (WrappedComponent: React.ComponentType<any>) => {
     fields,
     onSubmit,
     defaultValues,
+    schema,
   }: {
     fields: FieldConfig[];
+    schema?: Zod.ZodObject<any>,
     onSubmit: (data: unknown) => void;
     defaultValues?: unknown;
   }) => {
-    const schema = generateZodSchema(fields);
+    const effectiveSchema = schema ?? generateZodSchema(fields);
     const form = useForm({
-      resolver: zodResolver(schema),
+      resolver: zodResolver(effectiveSchema),
       defaultValues: defaultValues ?? Object.fromEntries(fields.map(f => [f.name, ""])),
     });
 
