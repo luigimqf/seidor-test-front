@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react"
 import {
   Table,
@@ -17,9 +18,10 @@ interface EmployeeTableProps {
   data: IEmployee[]
   onDelete: (item: IEmployee) => void
   onEdit: (item: IEmployee) => void
+  schema?: Zod.ZodObject<any>
 }
 
-const EmployeeTable: React.FC<EmployeeTableProps> = ({ data, onDelete, onEdit }) => {
+const EmployeeTable: React.FC<EmployeeTableProps> = ({ data, onDelete, onEdit, schema }) => {
   const [isEditing, setIsEditing] = React.useState<boolean>(false);
   const [isDeleting, setIsDeleting] = React.useState<boolean>(false);
   const [selectedEmployee, setSelectedEmployee] = React.useState({} as IEmployee)
@@ -81,6 +83,7 @@ const EmployeeTable: React.FC<EmployeeTableProps> = ({ data, onDelete, onEdit })
       </Table>
       <UpdateModal 
         isOpen={isEditing}
+        schema={schema}
         employee={selectedEmployee}
         setIsOpen={setIsEditing}
         onSubmit={(data) => {

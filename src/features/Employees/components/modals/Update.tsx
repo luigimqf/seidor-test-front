@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { DynamicForm } from "@/components/forms"
 import { 
   Dialog, 
@@ -14,9 +15,10 @@ import { employeeFormConfig } from "../../constants";
 interface IUpdateModalProps extends IModalDefaultProps {
   onSubmit: (data: unknown) => void;
   employee: IEmployee;
+  schema?: Zod.ZodObject<any>
 }
 
-export const UpdateModal = ({employee,isOpen,onSubmit,setIsOpen}:IUpdateModalProps) => {
+export const UpdateModal = ({employee,isOpen,onSubmit,setIsOpen,schema}:IUpdateModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent>
@@ -30,6 +32,7 @@ export const UpdateModal = ({employee,isOpen,onSubmit,setIsOpen}:IUpdateModalPro
           fields={employeeFormConfig}
           onSubmit={onSubmit}
           defaultValues={employee}
+          schema={schema}
         />
       </DialogContent>
     </Dialog>

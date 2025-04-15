@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { DynamicForm } from "@/components/forms"
 import { Button } from "@/components/ui/button";
 import { 
@@ -9,13 +10,13 @@ import {
   DialogTrigger } from "@/components/ui/dialog"
 import { IModalDefaultProps } from "./interfaces.structure";
 import { employeeFormConfig } from "../../constants";
-import { userSchema } from "../../lib/validation";
 
 interface ICreateModalProps extends IModalDefaultProps {
   onSubmit: (data: unknown) => void;
+  schema?: Zod.ZodObject<any>
 }
 
-export const CreateModal = ({isOpen,setIsOpen,onSubmit}:ICreateModalProps) => {
+export const CreateModal = ({isOpen,setIsOpen,onSubmit,schema}:ICreateModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger>
@@ -31,7 +32,7 @@ export const CreateModal = ({isOpen,setIsOpen,onSubmit}:ICreateModalProps) => {
         <DynamicForm 
           fields={employeeFormConfig}
           onSubmit={onSubmit}
-          schema={userSchema}
+          schema={schema}
         />
       </DialogContent>
     </Dialog>

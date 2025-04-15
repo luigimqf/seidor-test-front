@@ -3,9 +3,10 @@ import { useEmployees } from "../hooks/useEmployees";
 import { CreateModal } from "./modals/Create";
 import { IEmployee } from "../types";
 import EmployeeTable from "./table/EmployeeTable";
+import { userSchema } from "../lib/validation";
 
 export const EmployeeLayout = () => {
-    const { employees, update, create } = useEmployees();
+    const { employees, updateEmployee, createEmployee, deleteEmployee } = useEmployees();
     const [isCreating, setIsCreating] = React.useState<boolean>(false);
   return (
     <>
@@ -17,20 +18,22 @@ export const EmployeeLayout = () => {
         </span>
         <CreateModal 
           isOpen={isCreating}
+          schema={userSchema}
           onSubmit={(data) => {
             setIsCreating(false)
-            create(data as IEmployee)
+            createEmployee(data as IEmployee)
           }}
           setIsOpen={setIsCreating}
         />
       </div>
       <EmployeeTable 
         data={employees}
-        onDelete={(emp) => {
-          console.log(emp)
+        schema={userSchema}
+        onDelete={({id}) => {
+          deleteEmployee(id)
         }}
         onEdit={(emp) => {
-          update(emp)
+          updateEmployee(emp)
         }}
       />
     </>
