@@ -12,7 +12,7 @@ export const EmployeesProvider = ({
 }) => {
   const [employees, setEmployees] = React.useState<Employees>([]);
 
-  const update = (data: IEmployee) => {
+  const updateEmployee = (data: IEmployee) => {
     const { id, salary, discount, dependents } = data;
   
     const irrf_discount = handleGrossSalary(salary, discount, dependents);
@@ -22,14 +22,16 @@ export const EmployeesProvider = ({
       irrf_discount,
     };
   
-    console.log({ updatedUser });
-  
-    return setEmployees(prev =>
-      prev.map(emp => (emp.id === id ? updatedUser : emp))
+    setEmployees(prev =>
+      prev.map(emp => {
+        return (
+          (emp.id === id ? updatedUser : emp)
+        )
+      })
     );
   };
 
-  const create = (data: Omit<IEmployee, "id">) => {
+  const createEmployee = (data: Omit<IEmployee, "id">) => {
     const { salary, discount, dependents } = data;
   
     const irrf_discount = handleGrossSalary(salary, discount, dependents);
@@ -42,8 +44,16 @@ export const EmployeesProvider = ({
 
     setEmployees(prev => [...prev, newUser])
   }
+
+  const deleteEmployee = (id: string) => {
+    const filtered = employees.filter(emp => emp.id !== id);
+
+    setEmployees(filtered);
+  }
+
+
   return (
-    <EmployeesContext.Provider value={{ employees, setEmployees,update, create }}>
+    <EmployeesContext.Provider value={{ employees, setEmployees,updateEmployee, createEmployee, deleteEmployee }}>
       {children}
     </EmployeesContext.Provider>
   );

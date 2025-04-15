@@ -87,6 +87,7 @@ export const defaultEmployees: IEmployee[] = [
 ];
 
 export const employeeFormConfig: FieldConfig[] = [
+  {name: "id", label: "", type: "hidden"},
   {name: "name", label:"Nome", type: "text", placeholder: "Some Name"},
   {name: "document", label:"CPF", type: "text", placeholder: "123.456.789-10", maxLength: 14},
   {name: "salary", label:"Salário Bruto", type: "number", placeholder: "0.000"},

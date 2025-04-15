@@ -8,6 +8,7 @@ function isValidDocument(document: string): boolean {
 }
 
 export const userSchema = z.object({
+  id: z.string(),
   name: z.string().nonempty("Campo nome não pode ser vazio"),
   document: z.string().refine((document) => isValidDocument(document), {
     message: "Documento Inválido"
