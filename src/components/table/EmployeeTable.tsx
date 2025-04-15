@@ -83,13 +83,17 @@ const EmployeeTable: React.FC<EmployeeTableProps> = ({ data, onDelete, onEdit })
         employee={selectedEmployee}
         setIsOpen={setIsEditing}
         onSubmit={(data) => {
+          setIsEditing(false)
           onEdit(data as IEmployee)
         }}
       />
       <DeleteModal 
         isOpen={isDeleting}
         setIsOpen={setIsDeleting}
-        onConfirm={() => onDelete(selectedEmployee)}
+        onConfirm={() => {
+          setIsDeleting(false)
+          onDelete(selectedEmployee)
+        }}
       />
     </div>
   )

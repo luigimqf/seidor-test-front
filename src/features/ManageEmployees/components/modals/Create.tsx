@@ -7,11 +7,17 @@ import {
   DialogHeader, 
   DialogTitle, 
   DialogTrigger } from "@/components/ui/dialog"
-import { employeeFormConfig } from "@/constants/form";
+import { IModalDefaultProps } from "./interfaces.structure";
+import { userSchema } from "@/utils/validation";
+import { employeeFormConfig } from "@/constants/employees";
 
-export const CreateModal = () => {
+interface ICreateModalProps extends IModalDefaultProps {
+  onSubmit: (data: unknown) => void;
+}
+
+export const CreateModal = ({isOpen,setIsOpen,onSubmit}:ICreateModalProps) => {
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger>
         <Button>Adicionar</Button>
       </DialogTrigger>
@@ -24,9 +30,8 @@ export const CreateModal = () => {
         </DialogHeader>
         <DynamicForm 
           fields={employeeFormConfig}
-          onSubmit={(data) => {
-            console.log(data);
-          }}
+          onSubmit={onSubmit}
+          schema={userSchema}
         />
       </DialogContent>
     </Dialog>

@@ -1,9 +1,12 @@
 import EmployeeTable from "@/components/table/EmployeeTable"
 import { useEmployees } from "@/hooks/useEmployees"
 import { CreateModal } from "./components/modals/Create";
+import React from "react";
+import { IEmployee } from "@/types/employee";
 
 export const ManageEmployees = () => {
-  const { employees } = useEmployees();
+  const { employees, update, create } = useEmployees();
+  const [isCreating, setIsCreating] = React.useState<boolean>(false);
 
   return (
     <div
@@ -15,7 +18,14 @@ export const ManageEmployees = () => {
         <span className="font-bold text-2xl">
           Funcionários
         </span>
-        <CreateModal />
+        <CreateModal 
+          isOpen={isCreating}
+          onSubmit={(data) => {
+            setIsCreating(false)
+            create(data as IEmployee)
+          }}
+          setIsOpen={setIsCreating}
+        />
       </div>
       <EmployeeTable 
         data={employees}
@@ -23,7 +33,7 @@ export const ManageEmployees = () => {
           console.log(emp)
         }}
         onEdit={(emp) => {
-          console.log(emp)
+          update(emp)
         }}
       />
     </div>

@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/dialog"
 import { IModalDefaultProps } from "./interfaces.structure";
 import { IEmployee } from "@/types/employee";
-import { employeeFormConfig } from "@/constants/form";
+import { employeeFormConfig } from "@/constants/employees";
 
 interface IUpdateModalProps extends IModalDefaultProps {
   onSubmit: (data: unknown) => void;
@@ -16,7 +16,6 @@ interface IUpdateModalProps extends IModalDefaultProps {
 }
 
 export const UpdateModal = ({employee,isOpen,onSubmit,setIsOpen}:IUpdateModalProps) => {
-  console.log({employee})
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent>

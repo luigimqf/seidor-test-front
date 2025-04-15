@@ -1,6 +1,8 @@
 export interface IEmployeesContext {
   employees: Employees;
   setEmployees: React.Dispatch<React.SetStateAction<Employees>>;
+  update: (data: IEmployee) => void;
+  create: (data: IEmployee) => void;
 }
 
 export interface IEmployee {
