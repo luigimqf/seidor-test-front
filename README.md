@@ -46,6 +46,6 @@ npm run dev
 ```
 
 ## 👤 Autor
-Luigi Mendes 
-GitHub: [@luigimqf](https://github.com/luigimqf) 
+Luigi Mendes \
+GitHub: [@luigimqf](https://github.com/luigimqf) \
 LinkedIn: [@luigimqf](https://www.linkedin.com/in/luigimqf/) 
