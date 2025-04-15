@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { DynamicForm } from "@/components/forms"
-import { Button } from "@/components/ui/button";
 import { 
   Dialog, 
   DialogContent, 
@@ -20,7 +19,11 @@ export const CreateModal = ({isOpen,setIsOpen,onSubmit,schema}:ICreateModalProps
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger>
-        <Button>Adicionar</Button>
+        <span
+          className="w-40 bg-zinc-950 rounded-md text-white font-medium text-sm text-center cursor-pointer hover:bg-zinc-800 transition duration-300 p-2"
+        >
+          Adicionar
+        </span>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
