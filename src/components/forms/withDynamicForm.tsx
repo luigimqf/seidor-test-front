@@ -4,26 +4,11 @@ import React from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 
 import { Form } from "@/components/ui/form";
 import { FieldConfig } from "@/types/form";
 import { Button } from "../ui/button";
-
-const generateZodSchema = (fields: FieldConfig[]) => {
-  const shape = fields.reduce<Record<string, any>>((acc, field) => {
-    const { name, type } = field;
-
-    acc[name] =
-      type === "number"
-        ? z.coerce.number().min(0, "Mínimo 0")
-        : z.string().min(1, "Campo obrigatório");
-
-    return acc;
-  }, {});
-
-  return z.object(shape);
-};
+import { generateZodSchema } from "@/utils/validation";
 
 export const withDynamicForm = (WrappedComponent: React.ComponentType<any>) => {
   return ({
